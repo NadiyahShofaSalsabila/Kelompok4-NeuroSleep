@@ -69,6 +69,10 @@ cp .env.example .env
 docker-compose up --build
 ```
 
+### 4. Jalankan website
+
+http://localhost:3000 (Silahkan akses langsung di browser anda jika sudah berhasil melakukan instalasi lokal)
+
 # Petunjuk Penggunaan Aplikasi
 
 1. Lakukan register jika anda belum memiliki akun.
