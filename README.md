@@ -41,6 +41,8 @@ Teknologi yang digunakan:
 ```bash
 git clone https://github.com/NadiyahShofaSalsabila/Kelompok4-NeuroSleep.git
 ```
+atau
+download kode aplikasi melalui google drive https://drive.google.com/drive/folders/1_byay9vNOLPnuxcUT6R3vtp3sYsPTxpQ?usp=sharing
 
 ### 2. Konfigurasi `.env`
 Buat file `.env` di root folder dengan isi seperti berikut:
@@ -84,3 +86,4 @@ http://localhost:3000 (Silahkan akses langsung di browser anda jika sudah berhas
 # URL Aplikasi Live
 
 http://202.10.48.112:3000/ (Silahkan akses langsung di browser anda)
+
