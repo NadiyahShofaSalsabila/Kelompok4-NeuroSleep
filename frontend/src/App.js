@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import MainPage from "./page/Main.js";
 import HomePage from "./page/Home.js";
 import AboutPage from "./page/About.js";
@@ -21,7 +21,8 @@ class App extends React.Component {
             <Route path="predict" element={<PredictionPage />} />
             <Route path="history" element={<HistoryPage />} />
           </Route>
-          {/* add other routes as needed */}
+          {/* Route untuk menangani semua route yang tidak ada */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Fragment>
     );
