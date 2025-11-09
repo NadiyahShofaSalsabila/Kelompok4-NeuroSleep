@@ -172,5 +172,3 @@ def delete_all_history():
     delete_all_predictions()
     return jsonify({'message': 'All history deleted'})
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=BACKEND_PORT, debug=True)
