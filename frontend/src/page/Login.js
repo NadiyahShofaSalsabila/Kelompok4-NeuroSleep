@@ -43,7 +43,7 @@ const LoginPage = () => {
 
         // Simpan user info di localStorage
         localStorage.setItem("user", JSON.stringify(response.data));
-        print('hello'
+
         // Redirect ke halaman utama
         navigate("/", { replace: true });
       } else {
