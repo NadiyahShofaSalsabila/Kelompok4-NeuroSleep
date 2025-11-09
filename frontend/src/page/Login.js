@@ -91,7 +91,7 @@ const LoginPage = () => {
               type="password"
               className="form-control"
               name="password"
-              placeholder="Enter password"
+              placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
               required
