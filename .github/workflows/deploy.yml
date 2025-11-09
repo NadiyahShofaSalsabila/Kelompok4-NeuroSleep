@@ -24,13 +24,11 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-          pip install -r requirements.txt || echo "no requirements.txt found"
+          pip install -r requirements.txt
 
-      - name: Run Backend Tests (optional)
+      - name: Syntax check all backend files
         working-directory: ./backend
-        run: |
-          source venv/bin/activate
-          pytest || echo "No tests found, skipping"
+        run: python -m py_compile *.py
 
       # Setup Node (untuk frontend)
       - name: Set up Node.js
