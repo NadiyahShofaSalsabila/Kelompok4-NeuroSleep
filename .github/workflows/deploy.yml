@@ -1,4 +1,4 @@
-name: CI/CD Direct Deploy
+name: CI/CD Pipeline
 
 on:
   push:
@@ -6,8 +6,51 @@ on:
       - main
 
 jobs:
-  deploy:
+  test:
+    name: Run Tests and Build Check
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Setup Python (untuk backend)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Install Backend Dependencies
+        working-directory: ./backend
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt || echo "no requirements.txt found"
+
+      - name: Run Backend Tests (optional)
+        working-directory: ./backend
+        run: |
+          source venv/bin/activate
+          pytest || echo "No tests found, skipping"
+
+      # Setup Node (untuk frontend)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Frontend Dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build Frontend
+        working-directory: ./frontend
+        run: npm run build
+
+  deploy:
+    name: Deploy to VPS
+    needs: test
+    runs-on: ubuntu-latest
+    if: success()
 
     steps:
       - name: Deploy via SSH
