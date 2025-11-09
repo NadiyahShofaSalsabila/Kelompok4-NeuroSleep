@@ -7,7 +7,7 @@ import os
 
 # --- Load environment variables ---
 load_dotenv()
-
+print('Hello'
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "supersecretkey")  # fallback ke default jika kosong
 CORS(app, supports_credentials=True)
